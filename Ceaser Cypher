@@ -1,0 +1,50 @@
+def cipher():
+  encryption_option = input("Would you like to   Encode or Decode? ") 
+
+  should_encode = "encode" in           encryption_option.lower()
+  should_decode = "decode" in encryption_option.lower()
+  ciphertext = ""
+
+
+  if should_encode:
+    cipher_num = input(" Please enter Cipher number: ")
+    code = input("Please enter the message: ")
+    
+    for i in range(len(code)):
+      x = code(i)
+    
+      if x.islowe():
+        encode = ((x +int(cipher_num) - 97) % 26 + 97)
+    
+      elif x == " ":
+        ciphertext = ciphertext + str(" ")
+        continue
+    
+      elif x == '"':
+        ciphertext = ciphertext + str('"') 
+        continue
+
+      elif x == "!":
+        ciphertext = ciphertext + str("!")
+        continue
+    
+      elif x == "-":
+        ciphertext = ciphertext + str("-")
+        continue
+    
+      elif x == ".":
+        ciphertext = ciphertext + str(".")
+        continue
+    
+      elif x <= 97:
+        encode = ((x + int(cipher_num) - 65) % 26 + 65)
+    
+      ciphertext = ciphertext + chr(encode)
+
+    answer = ciphertext.upper
+    return answer
+  
+
+  else:
+    print("Error. Please try again")
+    pass
